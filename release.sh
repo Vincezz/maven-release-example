@@ -42,11 +42,11 @@ git add -u
 git commit -m "RELEASE: version $releaseVersion"
 
 git checkout master
-git merge release/"$releaseVersion" --no-ff
+git merge release/"$releaseVersion" --no-ff --no-edit
 git tag -a "$releaseVersion" -m "tagging $releaseVersion"
 
 git checkout develop
-git merge release/"$releaseVersion" --no-ff
+git merge release/"$releaseVersion" --no-ff --no-edit
 
 # incrément de la version maven
 mvn versions:set -DgenerateBackupPoms=false -DnewVersion="$developmentVersion"
